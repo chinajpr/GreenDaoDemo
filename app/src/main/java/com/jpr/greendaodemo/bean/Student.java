@@ -30,10 +30,12 @@ public class Student {
     private int age;
 
     //一对一（joinProperty的值是Student属性,该属性和IdCard的主键形成映射关系《IdCard的数据类型一定要和name属性一致》）
+    //把属性设置成（关联表的）主键
     @ToOne(joinProperty = "name")
     private IdCard idCard;
 
     //一对多，这个studentId是对应在CreditCard中的studentId,值一般的是Student的主键
+    //把主键设置成（关联表的）属性
     @ToMany(referencedJoinProperty = "studentId")
     List<CreditCard> creditCardsList;
     /** Used to resolve relations */
